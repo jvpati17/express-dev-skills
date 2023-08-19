@@ -2,8 +2,30 @@ const skills = require('../models/skill');
 
 module.exports = {
 index,
-show
+show,
+new: newSkill,
+create,
+delete: deleteSkill 
 };
+
+function deleteSkill(req, res) {
+    skills.deleteNewSkill(req.params.id);
+    res.redirect('/skills');
+}
+
+function create(req, res) {
+    console.log(req.body);
+    //models responsible for crudding data
+    skills.create(req.body);
+    res.redirect('/skills');
+
+}
+
+function newSkill(req, res) {
+    res.render('skills/new', {
+        
+    });
+}
 
 
 function index(req, res) {
@@ -12,7 +34,8 @@ function index(req, res) {
     });
 }
 function show(req, res) {
-    res.render('skills/show', {
-      skills: skills.getOne(req.params.id),   
+    res.render('/show', {
+      skills: skills.getOne(req.params.id),
+        
     });
 }

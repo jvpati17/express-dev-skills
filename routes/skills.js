@@ -9,8 +9,14 @@ const skillsCtrl =require('../controllers/skills');
 
 // all actual paths start with '/skills'
 router.get('/', skillsCtrl.index);
-
+//getting skills/new
+router.get('/new', skillsCtrl.new)
 // getting skills by id
-router.get('/:id', skillsCtrl.show);
+router.get('./:id', skillsCtrl.show);
+// POST new skills POST/todos
+router.post('/', skillsCtrl.create);
+// delete request /skills/:id
+router.delete('/:id', skillsCtrl.delete);
+
 
 module.exports = router;

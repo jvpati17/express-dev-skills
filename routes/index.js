@@ -6,6 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Developer Skills' });
 });
 
+//router.get('/:')
+
 
 
 module.exports = router;
